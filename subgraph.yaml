@@ -1,0 +1,33 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: PrimaryPFP
+    network: goerli
+    source:
+      address: "0x000000000374800E799771196BF826cb7e7511a2"
+      abi: PrimaryPFP
+      startBlock: 9413415
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Initialized
+        - PrimaryRemoved
+        - PrimarySet
+        - PrimarySetByDelegateCash
+      abis:
+        - name: PrimaryPFP
+          file: ./abis/PrimaryPFP.json
+      eventHandlers:
+        - event: Initialized(uint8)
+          handler: handleInitialized
+        - event: PrimaryRemoved(indexed address,indexed address,uint256)
+          handler: handlePrimaryRemoved
+        - event: PrimarySet(indexed address,indexed address,uint256)
+          handler: handlePrimarySet
+        - event: PrimarySetByDelegateCash(indexed address,indexed address,uint256)
+          handler: handlePrimarySetByDelegateCash
+      file: ./src/primary-pfp.ts

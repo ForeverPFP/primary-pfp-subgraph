@@ -1,0 +1,37 @@
+type Initialized @entity(immutable: true) {
+  id: Bytes!
+  version: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PrimaryRemoved @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  contract_: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PrimarySet @entity(immutable: true) {
+  id: Bytes!
+  to: Bytes! # address
+  contract_: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PrimarySetByDelegateCash @entity(immutable: true) {
+  id: Bytes!
+  to: Bytes! # address
+  contract_: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

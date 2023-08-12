@@ -1,0 +1,8 @@
+{
+  "goerli": {
+    "PrimaryPFP": {
+      "address": "0x000000000374800E799771196BF826cb7e7511a2",
+      "startBlock": 9413415
+    }
+  }
+}
